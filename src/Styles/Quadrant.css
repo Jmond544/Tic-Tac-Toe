@@ -20,8 +20,10 @@
 
 .xMode {
     background: #40281f;
+    color: rgb(158, 104, 88);
 }
 
 .oMode{
     background: #1f402e;
+    color: #3d7a59; 
 }

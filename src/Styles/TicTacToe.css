@@ -1,39 +1,73 @@
-
 .container {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-.title{
-    margin-top: 30px;
-    color: #fff;
+.title {
+  margin-top: 30px;
+  color: #fff;
 }
-.title span{
-    color: #60d0ee;
+.title span {
+  color: #60d0ee;
 }
 
 .reset {
-    width: 250px;
-    height: 50px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: 50px;
-    background: #1f3540;
-    font-size: 26px;
-    color: #60d0ee;
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 30px;
+  width: 250px;
+  height: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50px;
+  background: #1f3540;
+  font-size: 26px;
+  color: #60d0ee;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 
 .board {
-    flex-wrap: wrap;
-    height: auto;
-    width: 564px;
-    display: flex;
-    justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  width: 564px;
+  display: flex;
+  justify-content: center;
 }
 
+.subtitle {
+    opacity: 0;
+    height: 30px;
+    padding: 0 15px;
+    border-radius: 20px;
+    transition: opacity 0.3s ease-in-out, background 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+.subtitle.showX {
+    opacity: 1;
+    background: #40281f; /* Establece el color de fondo predeterminado */
+    color: rgb(158, 104, 88);
+  }
+
+  .subtitle.showO {
+    opacity: 1;
+    background: #1f402e; /* Establece el color de fondo predeterminado */
+    color: #3d7a59; /* Establece el color de fondo predeterminado */
+  }
+
+  .subtitle.showE {
+    opacity: 1;
+    background: #e76f51; /* Establece el color de fondo predeterminado */
+    color: #e9c46a; /* Establece el color de fondo predeterminado */
+  }
+
+  .subtitle.playing {
+    opacity: 1;
+    height: 30px; /* Cambia la altura para el estado 'playing' */
+    color: #1f3540;
+    padding: 0 15px; /* Cambia el relleno para el estado 'playing' */
+    border-radius: 20px; /* Ajusta el borde para el estado 'playing' */
+    background: #60d0ee; 
+  }
+  

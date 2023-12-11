@@ -23,6 +23,7 @@ function TikTakToe() {
     setLock(false);
     setBoard(Array(9).fill(null));
     setCount(0);
+    setWin("");
   };
 
   const verificarGanador = () => {
@@ -64,6 +65,9 @@ function TikTakToe() {
         <h1 className="title">
           TicTacToe Game with <span>React</span>
         </h1>
+        <h2 className={`subtitle ${win === 'X'? 'showX' : win === 'O'? 'showO' : count === 9 ? 'showE' : 'playing'}`}>
+          {win != '' ? `Ganador: ${win}` : count === 9 ? "Empate" : "Jugando..."}
+        </h2>
         <div className="board">
           {board.map((value, index) => (
             <Quadrant key={index} value={value} index={index} toggle={toggle} />
