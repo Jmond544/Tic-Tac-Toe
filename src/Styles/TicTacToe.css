@@ -5,12 +5,30 @@
   flex-direction: column;
 }
 .title {
-  margin-top: 30px;
+  margin-top: 15px;
+  margin-bottom: 0;
   color: #fff;
 }
 .title span {
-  color: #60d0ee;
+    background: radial-gradient(circle at 50% -20.71%, #aec4fe 0, #6c90d8 50%, #0060b3 100%);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: movimientoGradiente 5s ease infinite;
 }
+
+@keyframes movimientoGradiente {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+  }
 
 .reset {
   width: 250px;
@@ -26,6 +44,11 @@
   font-weight: bold;
   margin-top: 15px;
   margin-bottom: 30px;
+  transition: all .5s;
+}
+
+.reset:hover {
+  background: #375e72;
 }
 
 .board {
@@ -35,39 +58,3 @@
   display: flex;
   justify-content: center;
 }
-
-.subtitle {
-    opacity: 0;
-    height: 30px;
-    padding: 0 15px;
-    border-radius: 20px;
-    transition: opacity 0.3s ease-in-out, background 0.5s ease-in-out, height 0.5s ease-in-out;
-}
-
-.subtitle.showX {
-    opacity: 1;
-    background: #40281f; /* Establece el color de fondo predeterminado */
-    color: rgb(158, 104, 88);
-  }
-
-  .subtitle.showO {
-    opacity: 1;
-    background: #1f402e; /* Establece el color de fondo predeterminado */
-    color: #3d7a59; /* Establece el color de fondo predeterminado */
-  }
-
-  .subtitle.showE {
-    opacity: 1;
-    background: #e76f51; /* Establece el color de fondo predeterminado */
-    color: #e9c46a; /* Establece el color de fondo predeterminado */
-  }
-
-  .subtitle.playing {
-    opacity: 1;
-    height: 30px; /* Cambia la altura para el estado 'playing' */
-    color: #1f3540;
-    padding: 0 15px; /* Cambia el relleno para el estado 'playing' */
-    border-radius: 20px; /* Ajusta el borde para el estado 'playing' */
-    background: #60d0ee; 
-  }
-  
