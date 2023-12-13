@@ -5,13 +5,18 @@
   flex-direction: column;
 }
 .title {
-    font-size: 30px;
+  font-size: 30px;
   margin-top: 15px;
   margin-bottom: 0;
   color: #fff;
 }
 .title span {
-    background: radial-gradient(circle at 50% -20.71%, #aec4fe 0, #6c90d8 50%, #0060b3 100%);
+  background: radial-gradient(
+    circle at 50% -20.71%,
+    #aec4fe 0,
+    #6c90d8 50%,
+    #0060b3 100%
+  );
   background-size: 400% 400%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -20,18 +25,18 @@
 }
 
 @keyframes movimientoGradiente {
-    0% {
-      background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
+  0% {
+    background-position: 0% 0%;
   }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
 
-.state-bar{
+.state-bar {
   display: flex;
   gap: 10px;
   flex-direction: row;
@@ -51,11 +56,11 @@
   font-weight: bold;
   margin-top: 15px;
   margin-bottom: 10px;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .reset:hover {
-	font-size: 22px;
+  font-size: 22px;
   background: #375e72;
 }
 
@@ -68,18 +73,17 @@
 }
 
 @media (max-width: 550px) {
-	.board {
-		height: 75vw;
-  	width: 75vw;
-	}
-	.reset {
-		font-size: 22px;
-	}
+  .board {
+    height: 75vw;
+    width: 75vw;
+  }
+  .reset {
+    font-size: 22px;
+  }
 }
 
 @media (max-width: 360px) {
-
-	.reset {
-		width: 75vw;
-	}
+  .reset {
+    width: 75vw;
+  }
 }

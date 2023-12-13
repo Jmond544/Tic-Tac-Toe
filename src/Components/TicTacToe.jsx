@@ -6,9 +6,6 @@ import Switch from "./Switch";
 
 function TikTakToe() {
   const [count, setCount] = useState(0);
-  // const [turn, setTurn] = useState("");
-  // let turn="";
-  // const [lock1, setLock] = useState(false);
   const lock = useRef(false);
   const [board, setBoard] = useState(Array(9).fill(null));
   const [win, setWin] = useState("");
@@ -24,7 +21,6 @@ function TikTakToe() {
   };
 
   const resetBoard = () => {
-    //setLock(false);
     lock.current = false;
     setBoard(Array(9).fill(null));
     setCount(0);
@@ -32,7 +28,6 @@ function TikTakToe() {
   };
 
   const verificarGanador = () => {
-    
     const winConditions = [
       [0, 1, 2], // Horizontal
       [3, 4, 5], // Horizontal
@@ -49,20 +44,16 @@ function TikTakToe() {
 
       if (board[a] === "X" && board[b] === "X" && board[c] === "X") {
         setWin("X");
-        // setLock(true);
         lock.current = true;
-        console.log(lock.current)
         return winConditions[i];
       } else if (board[a] === "O" && board[b] === "O" && board[c] === "O") {
         setWin("O");
-        // setLock(true);
         lock.current = true;
         return winConditions[i];
       }
     }
 
-    if(count === 9) {
-      //setLock(true);
+    if (count === 9) {
       lock.current = true;
       return;
     }
@@ -71,34 +62,30 @@ function TikTakToe() {
   };
 
   const playerAuto = () => {
-    if(count % 2 === 0 || lock.current){
+    if (count % 2 === 0 || lock.current) {
       return;
     }
     const random = Math.floor(Math.random() * 9);
     if (board[random] === null) {
-      console.log('-' + count + ' - ' + lock.current);
       toggle(random);
     } else {
       playerAuto();
     }
-  }
+  };
 
-  
   useEffect(() => {
-    
     verificarGanador();
 
     setTimeout(() => {
       playerAuto();
-    }, 300);
-
+    }, 200);
   }, [count]);
 
   return (
     <div>
       <div className="container">
         <h1 className="title">
-        <span>TicTacToe</span> Game
+          <span>TicTacToe</span> Game
         </h1>
         <div className="state-bar">
           <WinState win={win} count={count} />

@@ -1,38 +1,37 @@
 .containerQuadrant {
-    flex: 1 0 calc(33.33% - 10px);
-    min-height: calc(30%);
-    font-size: 50px;
-    display: flex;
-    height: auto;
-    width: auto;
-    background: #1f3540;
+  flex: 1 0 calc(33.33% - 10px);
+  min-height: calc(30%);
+  font-size: 50px;
+  display: flex;
+  height: auto;
+  width: auto;
+  background: #1f3540;
 
-    border-radius: 20px;
-    cursor: pointer;
-    border: 4px solid #0f1b21;
-    align-items: center;
-    justify-content: center;
-    transition: all .4s;
-    font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 4px solid #0f1b21;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s;
+  font-weight: bold;
 }
 
-.containerQuadrant:hover{
-    scale: .9;
+.containerQuadrant:hover {
+  scale: 0.9;
 }
 
 .xMode {
-    background: #40281f;
-    color: rgb(158, 104, 88);
+  background: #40281f;
+  color: rgb(158, 104, 88);
 }
 
-.oMode{
-    background: #1f402e;
-    color: #3d7a59; 
+.oMode {
+  background: #1f402e;
+  color: #3d7a59;
 }
 
 @media (max-width: 360px) {
-
-	.containerQuadrant {
-		font-size: 35px;
-	}
+  .containerQuadrant {
+    font-size: 35px;
+  }
 }
