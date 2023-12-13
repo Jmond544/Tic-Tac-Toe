@@ -1,19 +1,22 @@
 import "../Styles/TicTacToe.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Quadrant from "./Quadrant";
 import WinState from "./WinState";
+import Switch from "./Switch";
 
 function TikTakToe() {
   const [count, setCount] = useState(0);
-  let [lock, setLock] = useState(false);
+  // const [turn, setTurn] = useState("");
+  // let turn="";
+  // const [lock1, setLock] = useState(false);
+  const lock = useRef(false);
   const [board, setBoard] = useState(Array(9).fill(null));
   const [win, setWin] = useState("");
 
   const toggle = (num) => {
-    if (lock || board[num] !== null) {
+    if (lock.current || board[num] !== null) {
       return;
     }
-
     const newBoard = [...board];
     newBoard[num] = count % 2 === 0 ? "X" : "O";
     setBoard(newBoard);
@@ -21,13 +24,15 @@ function TikTakToe() {
   };
 
   const resetBoard = () => {
-    setLock(false);
+    //setLock(false);
+    lock.current = false;
     setBoard(Array(9).fill(null));
     setCount(0);
     setWin("");
   };
 
   const verificarGanador = () => {
+    
     const winConditions = [
       [0, 1, 2], // Horizontal
       [3, 4, 5], // Horizontal
@@ -44,29 +49,61 @@ function TikTakToe() {
 
       if (board[a] === "X" && board[b] === "X" && board[c] === "X") {
         setWin("X");
-        setLock(true);
+        // setLock(true);
+        lock.current = true;
+        console.log(lock.current)
         return winConditions[i];
       } else if (board[a] === "O" && board[b] === "O" && board[c] === "O") {
         setWin("O");
-        setLock(true);
+        // setLock(true);
+        lock.current = true;
         return winConditions[i];
       }
     }
-    console.log("Ganador: ", win);
+
+    if(count === 9) {
+      //setLock(true);
+      lock.current = true;
+      return;
+    }
+
     return null;
   };
 
+  const playerAuto = () => {
+    if(count % 2 === 0 || lock.current){
+      return;
+    }
+    const random = Math.floor(Math.random() * 9);
+    if (board[random] === null) {
+      console.log('-' + count + ' - ' + lock.current);
+      toggle(random);
+    } else {
+      playerAuto();
+    }
+  }
+
+  
   useEffect(() => {
+    
     verificarGanador();
-  }, [board]);
+
+    setTimeout(() => {
+      playerAuto();
+    }, 300);
+
+  }, [count]);
 
   return (
     <div>
       <div className="container">
         <h1 className="title">
-          TicTacToe Game with <span>React</span>
+        <span>TicTacToe</span> Game
         </h1>
-        <WinState win={win} count={count} />
+        <div className="state-bar">
+          <WinState win={win} count={count} />
+          <Switch />
+        </div>
         <div className="board">
           {board.map((value, index) => (
             <Quadrant key={index} value={value} index={index} toggle={toggle} />

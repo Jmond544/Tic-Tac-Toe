@@ -31,6 +31,12 @@
     }
   }
 
+.state-bar{
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+}
 .reset {
   width: 250px;
   height: 40px;
