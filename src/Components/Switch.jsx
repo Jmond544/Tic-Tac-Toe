@@ -1,9 +1,13 @@
 import "../Styles/Switch.css";
 
-function Switch() {
+function Switch({ isChecked, handleCheckboxChange }) {
   return (
     <label className="switch">
-      <input type="checkbox" name="" id="" />
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={handleCheckboxChange}
+      />
       <span className="slider"></span>
     </label>
   );

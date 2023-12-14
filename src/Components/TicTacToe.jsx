@@ -9,6 +9,7 @@ function TikTakToe() {
   const lock = useRef(false);
   const [board, setBoard] = useState(Array(9).fill(null));
   const [win, setWin] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   const toggle = (num) => {
     if (lock.current || board[num] !== null) {
@@ -73,14 +74,19 @@ function TikTakToe() {
     }
   };
 
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
   useEffect(() => {
     verificarGanador();
-
-    setTimeout(() => {
-      playerAuto();
-    }, 200);
+    if (isChecked) {
+      setTimeout(() => {
+        playerAuto();
+      }, 200);
+    }
   }, [count]);
-
+  
   return (
     <div>
       <div className="container">
@@ -88,8 +94,8 @@ function TikTakToe() {
           <span>TicTacToe</span> Game
         </h1>
         <div className="state-bar">
-          <WinState win={win} count={count} />
-          <Switch />
+          <WinState win={win} coisCheckedunt={count} />
+          <Switch isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
         </div>
         <div className="board">
           {board.map((value, index) => (
