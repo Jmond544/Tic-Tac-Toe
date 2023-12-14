@@ -94,8 +94,11 @@ function TikTakToe() {
           <span>TicTacToe</span> Game
         </h1>
         <div className="state-bar">
+          <div className="container-switch">
+            <p>Modo automático: </p>
+            <Switch isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
+          </div>
           <WinState win={win} coisCheckedunt={count} />
-          <Switch isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
         </div>
         <div className="board">
           {board.map((value, index) => (

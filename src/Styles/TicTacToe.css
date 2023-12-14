@@ -41,7 +41,23 @@
   gap: 10px;
   flex-direction: row;
   align-items: center;
+  justify-content: space-evenly;
 }
+
+.container-switch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(45deg, #283c86, #45a247);
+  background-size: 400% 400%;
+  border-radius: 50px;
+  padding: 0 10px;
+  font-weight: bold;
+  height: 42px;
+  animation: movimientoGradiente 4s alternate-reverse infinite;
+}
+
 .reset {
   width: 250px;
   height: 40px;
@@ -79,6 +95,11 @@
   }
   .reset {
     font-size: 22px;
+  }
+  .state-bar {
+    margin-top: 10px;
+    flex-direction: column;
+    gap: 0;
   }
 }
 
