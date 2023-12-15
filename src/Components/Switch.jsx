@@ -8,7 +8,7 @@ function Switch({ isChecked, handleCheckboxChange }) {
         checked={isChecked}
         onChange={handleCheckboxChange}
       />
-      <span className="slider"></span>
+      <span className="slider glass-effect"></span>
     </label>
   );
 }

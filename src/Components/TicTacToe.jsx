@@ -141,8 +141,8 @@ function TikTakToe() {
           <span>TicTacToe</span> Game
         </h1>
         <div className="state-bar">
-          <div className="container-switch">
-            <p>Modo automático: </p>
+          <div className={`container-switch ${isChecked? 'checked':'' }`}>
+            <p>Jugar con IA: </p>
             <Switch
               isChecked={isChecked}
               handleCheckboxChange={handleCheckboxChange}

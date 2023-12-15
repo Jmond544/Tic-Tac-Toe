@@ -24,6 +24,12 @@
   background-color: #ccc;
 }
 
+.glass-effect {
+  background: #fafafa40;
+  backdrop-filter: blur(0.4rem);
+  -webkit-backdrop-filter: blur(0.4rem);
+}
+
 .slider::before {
   position: absolute;
   content: "";
@@ -31,11 +37,13 @@
   width: 24px;
   left: 3px;
   bottom: 3px;
-  background-color: #fff;
+  background-color: #1f3540;
   border-radius: 50%;
-  transition: transform 0.4s;
+  transition: all 0.4s;
 }
 
 input:checked + .slider::before {
   transform: translateX(30px);
+  background-color: #fff;
+
 }
