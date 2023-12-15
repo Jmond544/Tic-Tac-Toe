@@ -33,6 +33,7 @@ function TikTakToe() {
   };
 
   const resetBoard = () => {
+    console.log("MJ")
     lock.current = false;
     setBoard(Array(9).fill(null));
     setCount(0);
@@ -141,7 +142,7 @@ function TikTakToe() {
           <span>TicTacToe</span> Game
         </h1>
         <div className="state-bar">
-          <div className={`container-switch ${isChecked? 'checked':'' }`}>
+          <div className={`container-switch ${isChecked ? "checked" : ""}`}>
             <p>Jugar con IA: </p>
             <Switch
               isChecked={isChecked}
@@ -156,7 +157,7 @@ function TikTakToe() {
           ))}
         </div>
         <button className="reset" onClick={resetBoard}>
-          Reset
+          <span>Reset</span>
         </button>
       </div>
     </div>
